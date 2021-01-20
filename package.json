@@ -1,0 +1,58 @@
+{
+  "name": "story-hub",
+  "private": true,
+  "description": "Write your own story",
+  "version": "2.1.0",
+  "author": "RedQ, Inc",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "lerna clean --yes && rimraf node_modules",
+    "clean:gatsby": "lerna run --parallel clean",
+    "dev:personal": "yarn workspace @blog/personal develop",
+    "build:personal": "yarn workspace @blog/personal build",
+    "serve:personal": "yarn workspace @blog/personal serve",
+    "dev:agency": "yarn workspace @blog/agency develop",
+    "build:agency": "yarn workspace @blog/agency build",
+    "serve:agency": "yarn workspace @blog/agency serve",
+    "dev:personal-minimal": "yarn workspace @blog/personal-minimal develop",
+    "build:personal-minimal": "yarn workspace @blog/personal-minimal build",
+    "serve:personal-minimal": "yarn workspace @blog/personal-minimal serve",
+    "dev:image": "yarn workspace @blog/image develop",
+    "build:image": "yarn workspace @blog/image build",
+    "serve:image": "yarn workspace @blog/image serve",
+    "dev:photography": "yarn workspace @blog/photography develop",
+    "build:photography": "yarn workspace @blog/photography build",
+    "serve:photography": "yarn workspace @blog/photography serve",
+    "dev:personal-lite": "yarn workspace @blog/personal-lite develop",
+    "build:personal-lite": "yarn workspace @blog/personal-lite build",
+    "serve:personal-lite": "yarn workspace @blog/personal-lite serve",
+    "dev:agency-modern": "yarn workspace @blog/modern-agency develop",
+    "build:agency-modern": "yarn workspace @blog/modern-agency build",
+    "serve:agency-modern": "yarn workspace @blog/modern-agency serve",
+    "dev:beauty": "yarn workspace @blog/beauty develop",
+    "build:beauty": "yarn workspace @blog/beauty build",
+    "serve:beauty": "yarn workspace @blog/beauty serve",
+    "dev:tinder": "yarn workspace @blog/tinder develop",
+    "build:tinder": "yarn workspace @blog/tinder build",
+    "serve:tinder": "yarn workspace @blog/tinder serve"
+  },
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.3.0",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md,css}": [
+      "prettier --trailing-comma es5 --single-quote --write"
+    ]
+  }
+}
