@@ -29,7 +29,7 @@ const Contact: React.SFC<{}> = () => {
       onSubmit={(values: MyFormValues, actions: any) => {
         setTimeout(() => {
           console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
+          //alert(JSON.stringify(values, null, 2));
           actions.setSubmitting(false);
         }, 700);
       }}
@@ -43,7 +43,12 @@ const Contact: React.SFC<{}> = () => {
         isSubmitting,
       }: FormikProps<MyFormValues>) => (
         <>
-          <Form>
+          <Form
+            name='contact'
+            method='POST'
+            data-netlify='true'
+            data-netlify-honey='bot-field'
+          >
             <ContactWrapper>
               <ContactPageTitle>
                 <h2>Contact</h2>
