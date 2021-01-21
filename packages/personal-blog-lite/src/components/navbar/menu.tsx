@@ -18,7 +18,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   className,
   ...props
 }) => {
-  // Add all classs to an array
+  // Add all class to an array
   const addAllClasses = ['menu'];
 
   // className prop checking

@@ -37,7 +37,7 @@ const PostCardMinimal: React.FunctionComponent<PostCardMinimalProps> = ({
   imageType,
   ...props
 }) => {
-  // Add all classs to an array
+  // Add all class to an array
   const addAllClasses = ['post_card'];
 
   // className prop checking

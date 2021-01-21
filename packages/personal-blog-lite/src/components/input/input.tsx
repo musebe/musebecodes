@@ -40,7 +40,7 @@ const Input: React.FC<InputProps> = ({
   ariaLabel,
   ...props
 }) => {
-  // Add all classs to an array
+  // Add all class to an array
   const addAllClasses: string[] = ['field-wrapper'];
 
   // className prop checking

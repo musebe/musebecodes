@@ -7,6 +7,7 @@ import {
   IoLogoTwitter,
   IoLogoInstagram,
   IoLogoLinkedin,
+  IoLogoGithub,
 } from 'react-icons/io';
 import {
   AboutWrapper,
@@ -19,23 +20,23 @@ import {
 const SocialLinks = [
   {
     icon: <IoLogoFacebook />,
-    url: 'https://www.facebook.com/redqinc/',
+    url: 'https://www.facebook.com/emusebe9',
     tooltip: 'Facebook',
   },
   {
     icon: <IoLogoInstagram />,
-    url: 'https://www.instagram.com/redqinc/',
+    url: 'https://www.instagram.com/eugenemusebe',
     tooltip: 'Instagram',
   },
   {
     icon: <IoLogoTwitter />,
-    url: 'https://twitter.com/redqinc',
+    url: 'https://twitter.com/_musebe',
     tooltip: 'Twitter',
   },
   {
-    icon: <IoLogoLinkedin />,
-    url: 'https://www.linkedin.com/company/redqinc/',
-    tooltip: 'Linked In',
+    icon: <IoLogoGithub />,
+    url: 'https://github.com/musebe',
+    tooltip: 'Github',
   },
 ];
 
@@ -68,11 +69,11 @@ const About: React.FunctionComponent<AboutProps> = () => {
           Am a Fullstack Web developer passionate about building web accessible
           applications.I am also passionate about building developer inclusive
           communities that support and share knowledge on existing and upcoming
-          technological trends. In my line of duty, I work with Cloudinary as Media Developer Expert
-          where i specialize in web accessibility.I'm also an Auth0 Ambassador that
-          creates content around web security. Using this platform, I will be
-          able to share the little knowledge and snippets i acquire in my line
-          of duty.
+          technological trends. In my line of duty, I work with Cloudinary as
+          Media Developer Expert where i specialize in web accessibility.I'm
+          also an Auth0 Ambassador that creates content around web security.
+          Using this platform, I will be able to share the little knowledge and
+          snippets i acquire in my line of duty.
         </p>
 
         <SocialProfiles>
