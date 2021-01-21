@@ -32,11 +32,7 @@ const MenuItems = [
   {
     label: 'Contact',
     url: '/contact',
-  },
-  {
-    label: '404 Page',
-    url: '/404',
-  },
+  }
 ];
 
 const Navbar: React.FunctionComponent<NavbarProps> = ({
@@ -55,7 +51,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
     });
   };
 
-  // Add all classs to an array
+  // Add all class to an array
   const addAllClasses = ['header'];
 
   // className prop checking

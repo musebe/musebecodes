@@ -62,20 +62,17 @@ const About: React.FunctionComponent<AboutProps> = () => {
 
   return (
     <AboutWrapper>
-
       <AboutDetails>
         <h2>Hey there, what’s up?</h2>
         <p>
-          RedQ Team is a creative agency specializing in building scalable,
-          high-performance web & mobile application. Our main concern is
-          creating more value into the application so that can help our
-          customers to grow their business.
-        </p>
-        <p>
-          RedQ Team is a creative agency specializing in building scalable,
-          high-performance web & mobile application. Our main concern is
-          creating more value into the application so that can help our
-          customers to grow their business.
+          Am a Fullstack Web developer passionate about building web accessible
+          applications.I am also passionate about building developer inclusive
+          communities that support and share knowledge on existing and upcoming
+          technological trends. In my line of duty, I work with Cloudinary as Media Developer Expert
+          where i specialize in web accessibility.I'm also an Auth0 Ambassador that
+          creates content around web security. Using this platform, I will be
+          able to share the little knowledge and snippets i acquire in my line
+          of duty.
         </p>
 
         <SocialProfiles>

@@ -17,7 +17,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <ResetCss />
-        <Sticky top={0} innerZ={9999} activeClass="nav-sticky">
+        <Sticky top={0} innerZ={9999} activeClass='nav-sticky'>
           <Navbar />
         </Sticky>
 
@@ -25,12 +25,12 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
 
         <Footer>
           Copyright &copy; {new Date().getFullYear()}
-          <a href="https://redq.io/"> RedQ, Inc.</a>
+          <a href='https://www.musebecodes.dev/'> MusebeCodes</a>
         </Footer>
         <ScrollToTop
           showUnder={300}
           duration={700}
-          easing="easeInOutCubic"
+          easing='easeInOutCubic'
           style={{ bottom: 30, right: 20 }}
         >
           <ScrollUpButton />
