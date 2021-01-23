@@ -48,7 +48,7 @@ const Contact: React.SFC<{}> = () => {
             method='POST'
             data-netlify='true'
             data-netlify-honey='bot-field'
-          >
+           >
             <ContactWrapper>
               <ContactPageTitle>
                 <h2>Contact</h2>

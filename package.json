@@ -1,9 +1,9 @@
 {
-  "name": "story-hub",
+  "name": "eugene-musebe",
   "private": true,
-  "description": "Write your own story",
+  "description": "Personal Blog",
   "version": "2.1.0",
-  "author": "RedQ, Inc",
+  "author": "Eugene Musebe",
   "workspaces": [
     "packages/*"
   ],
