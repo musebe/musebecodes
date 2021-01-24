@@ -54,5 +54,9 @@
     "*.{js,md,css}": [
       "prettier --trailing-comma es5 --single-quote --write"
     ]
+  },
+  "dependencies": {
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-web-font-loader": "^1.0.4"
   }
 }

@@ -108,7 +108,7 @@ module.exports = {
       resolve: `gatsby-plugin-lodash`,
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
         fonts: [
           {
