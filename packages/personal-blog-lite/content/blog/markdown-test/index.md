@@ -1,6 +1,6 @@
 ---
 title: This is markdown unity test!
-date: '2019-04-22'
+date: '2021-01-24'
 tags: ['markdown', 'test', 'unity']
 cover: './preview-1.jpg'
 ---
@@ -37,7 +37,7 @@ simplify documentation writing.
 [github flavored markdown]: https://help.github.com/articles/github-flavored-markdown/
 
 ```js
-import Typography from 'typography'
+import Typography from 'typography';
 
 const typography = new Typography({
   baseFontSize: '18px',
@@ -45,14 +45,14 @@ const typography = new Typography({
   headerFontFamily: ['Avenir Next', 'Helvetica Neue', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Georgia', 'serif'],
   // See below for the full list of options.
-})
+});
 
 // Output CSS as string.
-typography.toString()
+typography.toString();
 
 // Or insert styles directly into the <head> (works well for client-only
 // JS web apps.
-typography.injectStyles()
+typography.injectStyles();
 ```
 
 ```html
@@ -76,25 +76,25 @@ typography.injectStyles()
 ```
 
 ```js
-var rows = prompt('How many rows for your multiplication table?')
-var cols = prompt('How many columns for your multiplication table?')
-if (rows == '' || rows == null) rows = 10
-if (cols == '' || cols == null) cols = 10
-createTable(rows, cols)
+var rows = prompt('How many rows for your multiplication table?');
+var cols = prompt('How many columns for your multiplication table?');
+if (rows == '' || rows == null) rows = 10;
+if (cols == '' || cols == null) cols = 10;
+createTable(rows, cols);
 function createTable(rows, cols) {
-  var j = 1
-  var output = "<table border='1' width='500' cellspacing='0'cellpadding='5'>"
+  var j = 1;
+  var output = "<table border='1' width='500' cellspacing='0'cellpadding='5'>";
   for (i = 1; i <= rows; i++) {
-    output = output + '<tr>'
+    output = output + '<tr>';
     while (j <= cols) {
-      output = output + '<td>' + i * j + '</td>'
-      j = j + 1
+      output = output + '<td>' + i * j + '</td>';
+      j = j + 1;
     }
-    output = output + '</tr>'
-    j = 1
+    output = output + '</tr>';
+    j = 1;
   }
-  output = output + '</table>'
-  document.write(output)
+  output = output + '</table>';
+  document.write(output);
 }
 ```
 
