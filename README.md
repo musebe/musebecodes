@@ -13,3 +13,5 @@ PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors yarn
 or
 sudo npm install puppeteer --unsafe-perm=true --allow-root
 ```
+
+dev start command : yarn dev:personal-lite
