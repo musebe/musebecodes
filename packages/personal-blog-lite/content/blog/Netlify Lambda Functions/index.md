@@ -1,6 +1,6 @@
 ---
 title: Going Serverless With Netlify Cloud Functions
-date: '2021-02-15'
+date: '2021-02-12'
 description: Going Serverless With Netlify Cloud Functions.
 tags: ['Cloud-functions', 'Severless', 'Javascript']
 cover: './netlify.jpeg'
