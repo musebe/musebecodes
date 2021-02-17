@@ -45,7 +45,7 @@ The above code will reproduce the following output :
 
 A Codesandbox demo can be found [HERE](https://plkcu.csb.app/)
 
-Notice the use of square brackets when state variable is declared. This is the ES6 array destructuring syntax, and it means we’re assigning the first element of the array returned by useState to name and the second element to setName variable. This means we have a state named rate and we can update it by calling on setRate() function as shown above.
+Notice the use of square brackets when state variable is declared. This is the ES6 array destructuring syntax, and it means we’re assigning the first element of the array returned by useState to rating and the second element to setRating variable. This means we have a state named rate and we can update it by calling on setRate() function as shown above.
 
 setRate adjusts the value of the rate by incrementing one to the previous value. So every time you click the button the rate
 increments. From the above example, useState hook has demonstrated how we can change and set the state of functional components.
