@@ -10,6 +10,7 @@
     "frontmatter",
     "katex",
     "prismjs",
+    "quickstart",
     "stickynode"
   ]
 }
