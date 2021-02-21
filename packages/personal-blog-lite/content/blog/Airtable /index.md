@@ -10,11 +10,11 @@ slug: 'airtable'
 # <b>BACKGROUND</b>
 
 In my day to day interaction with programming projects, most of my clients specify that some part of their data should be stored on an excel sheet as part of their data backup and warehousing strategy. This process takes most of my time as i have to interact with two or more data sources as per the scope of the given project.<br/>
-As I did my research, I came across this awesome platform [AIRTABLE](https://airtable.com/), which could have made my work easier from the work go by providing me with a data storage facility, an API endpoint to interact with my data programmatically and a beautiful well presented UI interface that my clients could interact with their records.
+As I did my research, I came across this awesome platform [AIRTABLE](https://airtable.com/), which could have made my work easier by providing me with a data storage facility, an API endpoint to interact with my data programmatically and a beautiful well presented UI interface that my clients could interact with their records.
 
-In this tutorial, I will be showing you how you can perform <b>CRUD</b> operations to your data on the Airtable platform.
+In this tutorial, I will be showcasing how you can perform <b>CRUD</b> operations to your data on the Airtable platform.
 
-Please use my referral link as a token of appreciation for my effort. [LINK](https://airtable.com/invite/r/ATsRy46j)
+Please use my referral link to create your new account as a token of appreciation for my effort. [LINK](https://airtable.com/invite/r/ATsRy46j)
 
 ## <b>What is Airtable</b>
 
@@ -90,6 +90,8 @@ The above command will install the following dependencies :
 
 After the installation, lets create our `app.js` file. This is where we shall setup our express server.
 
+Add the following code to the created file :
+
 ```js
 const express = require('express');
 const app = express();
@@ -116,7 +118,7 @@ node app.js
 
 When you visit the Url: `localhost:5000`, you should be able to see the string 'Hello from Airtable' running on your browser.
 
-In order to interact with Airtable programmatically , we will have to bring the `API key`, `Airtable base id` and `Airtable table name` into your project.
+In order to interact with Airtable programmatically , we will have to bring the `API key`, `Airtable base id` and `Airtable table name` into the project.
 As this can be sensitive information that need not to be shared with everyone, create a `.env` file in the root project folder and fill the values associated with each key.
 
 All the information can be obtained from your airtable project as we did the setup above.
@@ -129,7 +131,7 @@ AIRTABLE_TABLE_NAME = xxxxxx;
 
 In order to interact with Airtable within our application without having to repeat the same code everytime in different files, we will create a `utils` folder where we shall put the `airtable.js` file.
 
-This will enable us achieve the principle of don't repeat yourself by reusing the file anytime we need to make use of it.
+This will enable us achieve the principle of `don't repeat yourself` by reusing the file anytime we need to make use of it.
 
 `If you have to repeat a block of code, then it should be a function. Don't repeat yourself.`
 
@@ -214,6 +216,14 @@ app.get('/single', async (req, res) => {
 });
 ```
 
+From the record object returned by find() one can get the following record content:
+
+```js
+record.get('Name');
+record.get('Email');
+record.get('Country');
+```
+
 ## GET ALL RECORDS
 
 ```js
@@ -222,14 +232,6 @@ app.get('/all', async (req, res) => {
   console.log(records);
   return res.json(records);
 });
-```
-
-From the record object returned by find() one can get the following record content:
-
-```js
-record.get('Name');
-record.get('Email');
-record.get('Country');
 ```
 
 ## Update a Record
@@ -280,6 +282,6 @@ If you do have more than 100 items in your table, to get access to the other rec
 
 I hope this article has been able to enable you understand and get started with Airtable.
 
-The source code to this article can be found [Here] (https://github.com/musebe/AIRTABLE_CRUD)
+The source code to this article can be found [Here](https://github.com/musebe/AIRTABLE_CRUD)
 
 For further clarification, feel free to contact or comment.
