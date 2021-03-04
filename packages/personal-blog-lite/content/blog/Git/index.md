@@ -14,114 +14,27 @@ I am going to try as much as possible to explain to you the difference between t
 
 This guide aims to give you a grasp and understanding of the basic terminologies and commands you’ll frequently use in your day to day activities as a software developer.
 
-## **REACT SETUP**
+## **What is version control?**
 
-To get started with Create React App;
+I will start by explaining the bombastic word _“version control”_ which will lead us to a better understanding of the role played by git.
 
-#### **Step 1: Create React App**
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
 
-Navigate to the project directory of your choice and run :
+## **What is Git?**
 
-```js
-npx create-react-app aircloud
-```
+I came to learn of git some years back when I was working on a client’s project using an old laptop that was termed a moving desktop by my friends due to its inability to save power (Faulty battery). Upon electricity going off, I lost all the work I had done as I had not had enough time to save my work. Imagine losing two days of work, in my case “Lines of code”. Painful, right ??
 
-After the installation is done, you will have a React application placed in the folder aircloud.
+Since desperate situations need desperate measures, I did my research and came across an awesome tool that has completely changed how I track my code.
 
-#### **Step 2: Install project dependencies**
+Git is a distributed version control system for tracking changes in your source code during software development. This means your local copy of the code is a complete version control repository.
 
-Install the required dependencies the application will use by running the command below:
+A repository has **commits** of the project or a set of references to the commits called **heads**. All this information is stored in the same folder as the project in a sub-folder called **.git** and will mostly be hidden by default in most systems.
 
-```js
-npm i dotenv cloudinary-react cloudinary
-```
+After doing **commits** to your code you can then do a git push to either Github, Gitlab or Bitbucket which are hosting services for version control.+
 
-When it comes to structuring the appearance of the application, we're going to be leveraging on `bootstrap` a Css library.
-Add the following CDN to your `index.html` file found inside the `public` directory :
+### **Getting started.**
 
-```index.html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-```
+To get started with Git, you have to download and install the tool on your local machine. Head over to [https://git-scm.com](https://git-scm.com) and download the version that is compatible with your operating system. For Windows users, you will be using the Git Bash program. It will utilize all the same commands as Terminal. After the installation, run the command: `$ git --version`. This command will show you which version of git is installed on your system.
 
-#### **Step 3: Configure environment variables**
-
-Having setup the different platforms and acquired the credentials, create a .env file on the root of your folder and add the respective values :
-
-```js
-CLOUDINARY_CLOUD_NAME = xxxxx;
-CLOUDINARY_API_KEY = xxxxxxx;
-CLOUDINARY_API_SECRET = xxxxxxx;
-CLOUDINARY_UPLOAD_PRESET = xxxxxxx;
-AIRTABLE_API_KEY = xxxxxxxx;
-AIRTABLE_BASE_ID = xxxxxxxxx;
-AIRTABLE_TABLE_NAME = xxxxxxxx;
-```
-
-#### **Step 4: Set up Netlify functions**
-
-To use the Netlify functions to manage the application, create a `netlify.toml` file on the root project folder and paste the code below:
-
-```netlify.toml
-[build]
-    functions="functions"
-```
-
-This file will define how Netlify will build and deploy your site. All the serverless functions shall be stored in the functions folder.
-
-Now create a functions folder in the root project directory as defined in the `netlify.toml` file; this will be the home to all our severless functions.
-
-In order to interact with Airtable within our application without having to repeat the same code everytime in different files, create a utils folder inside the functions folder and add an `airtable.js` file.
-
-Paste the following in it:
-
-```airtable.js
-require('dotenv').config();
-const Airtable = require('airtable');
-
-Airtable.configure({
-  apiKey: process.env.AIRTABLE_API_KEY,
-});
-
-const base = Airtable.base(process.env.AIRTABLE_BASE_ID);
-const table = base(process.env.AIRTABLE_TABLE_NAME);
-
-module.exports = {
-  base,
-  table,
-};
-```
-
-This will enable us achieve the coding principle of `don't repeat yourself` by reusing the file anytime we need to make use of it.
-
-From the code above, I imported the dotenv package in order to access the environment variables stored in the .env file. I then initialized and configured the Airtable library which enabled me to create and export variables that enables one to access the base and table globally within the application.
-
-With all the above setup and configurations, its time to spin up the server. Since we shall be leveraging on cloud functions,replace the default react start command `npm start` and use Netlify CLI to perform this operation. On your terminal run the following command :
-
-```start
-netlify dev
-```
-
-#### **Step 5: Create the upload and image display components**
-
-The application will have two major components that will be used to upload and display the images. To enable this, create a `components` folder inside the `src` directory of your react application and add an `Upload.js` & `ImageGallery.js` files.
-
-Now navigate back to the `App.js` component and paste the following code :
-
-```App.js
-
-import './App.css';
-import Upload from './components/Upload';
-import ImageGallery from './components/ImageGallery';
-//  import Title from './components/Title';
-
-function App() {
-  return (
-    <div className='container'>
-      <Upload />
-      <ImageGallery />
-    </div>
-  );
-}
-
-export default App;
-```
+In order to use the terminal or git bash, familiarity with the basic command-line commands is important. Below are some of the most important commands, you will need to know to get started.
+Basic command line reference
