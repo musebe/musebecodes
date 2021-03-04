@@ -72,7 +72,11 @@ With all the platforms above setup we can now start to build the application
 
 ## **REACT SETUP**
 
-To get started with Create React App, you can simply navigate to the project directory of your choice and run :
+To get started with Create React App;
+
+#### **Step 1: Create React App**
+
+Navigate to the project directory of your choice and run :
 
 ```js
 npx create-react-app aircloud
@@ -80,15 +84,24 @@ npx create-react-app aircloud
 
 After the installation is done, you will have a React application placed in the folder aircloud.
 
-To setup the React App;
+#### **Step 2: Install project dependencies**
 
-- First install the required dependencies the application will use by running the command below:
+Install the required dependencies the application will use by running the command below:
 
 ```js
 npm i dotenv cloudinary-react cloudinary
 ```
 
-- Having setup the different platforms and acquired the credentials, create a `.env` file on the root of your folder and add the respective values :
+When it comes to structuring the appearance of the application, we're going to be leveraging on `bootstrap` a Css library.
+Add the following CDN to your `index.html` file found inside the `public` directory :
+
+```index.html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+```
+
+#### **Step 3: Configure environment variables**
+
+Having setup the different platforms and acquired the credentials, create a .env file on the root of your folder and add the respective values :
 
 ```js
 CLOUDINARY_CLOUD_NAME = xxxxx;
@@ -100,14 +113,43 @@ AIRTABLE_BASE_ID = xxxxxxxxx;
 AIRTABLE_TABLE_NAME = xxxxxxxx;
 ```
 
-- To use the Netlify functions to manage the application, create a `netlify.toml` file on the root project folder and paste the code below:
+#### **Step 4: Set up Netlify functions**
+
+To use the Netlify functions to manage the application, create a `netlify.toml` file on the root project folder and paste the code below:
 
 ```netlify.toml
 [build]
     functions="functions"
 ```
 
-This file will define how Netlify will build and deploy your site.
+This file will define how Netlify will build and deploy your site. All the serverless functions shall be stored in the functions folder.
+
+Now create a functions folder in the root project directory as defined in the `netlify.toml` file; this will be the home to all our severless functions.
+
+In order to interact with Airtable within our application without having to repeat the same code everytime in different files, create a utils folder inside the functions folder and add an `airtable.js` file.
+
+Paste the following in it:
+
+```airtable.js
+require('dotenv').config();
+const Airtable = require('airtable');
+
+Airtable.configure({
+  apiKey: process.env.AIRTABLE_API_KEY,
+});
+
+const base = Airtable.base(process.env.AIRTABLE_BASE_ID);
+const table = base(process.env.AIRTABLE_TABLE_NAME);
+
+module.exports = {
+  base,
+  table,
+};
+```
+
+This will enable us achieve the coding principle of `don't repeat yourself` by reusing the file anytime we need to make use of it.
+
+From the code above, I imported the dotenv package in order to access the environment variables stored in the .env file. I then initialized and configured the Airtable library which enabled me to create and export variables that enables one to access the base and table globally within the application.
 
 With all the above setup and configurations, its time to spin up the server. Since we shall be leveraging on cloud functions,replace the default react start command `npm start` and use Netlify CLI to perform this operation. On your terminal run the following command :
 
@@ -115,12 +157,11 @@ With all the above setup and configurations, its time to spin up the server. Sin
 netlify dev
 ```
 
-The application will have two major components that will be used to upload and display the images. To enable this;
+#### **Step 5: Create the upload and image display components**
 
-- Create a `components` folder inside the `src` directory of your react application and
-- add `Upload.js` & `ImageGallery.js` files.
+The application will have two major components that will be used to upload and display the images. To enable this, create a `components` folder inside the `src` directory of your react application and add an `Upload.js` & `ImageGallery.js` files.
 
-Now navigate back to the `App.js` component and add the following code :
+Now navigate back to the `App.js` component and paste the following code :
 
 ```App.js
 
@@ -140,43 +181,6 @@ function App() {
 
 export default App;
 ```
-
-When it comes to building the appearance of the application, we're going to be leveraging on `bootstrap` a Css library.
-
-- Add the following CDN to your `index.html` file found inside the `public` directory :
-
-```index.html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-```
-
-- Now create a functions folder in the root project directory as defined in the `netlify.toml` file.
-
-  This will be the home to all our severless functions.
-
-In order to interact with Airtable within our application without having to repeat the same code everytime in different files,create a utils folder where you shall put the airtable.js file.
-
-This will enable us achieve the coding principle of `don't repeat yourself` by reusing the file anytime we need to make use of it.
-
-Create an `airtable.js` file inside the utils folder and add the following to it.
-
-```airtable.js
-require('dotenv').config();
-const Airtable = require('airtable');
-
-Airtable.configure({
-  apiKey: process.env.AIRTABLE_API_KEY,
-});
-
-const base = Airtable.base(process.env.AIRTABLE_BASE_ID);
-const table = base(process.env.AIRTABLE_TABLE_NAME);
-
-module.exports = {
-  base,
-  table,
-};
-```
-
-From the code above, I imported the dotenv package in order to access the environment variables stored in the .env file. I then initialized and configured the Airtable library which enabled me to create and export variables that enables one to access the base and table globally within the application.
 
 ### **Upload Files Component**
 
