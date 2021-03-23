@@ -79,6 +79,13 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+```
+
+From the code above, we imported the cloudinary package and configured the required configuration keys to access all the assets stored in cloudinary. By using `process.env` one can access values stored in the `.env.local` file.
+
+The next step is to create an asynchronous function that will fetch all images from cloudinary :
+
+```cloudinary.js
 export async function getAllImages() {
 
   const response = await cloudinary.v2.api.resources({
@@ -93,10 +100,7 @@ export async function getAllImages() {
 
   return sliderData;
 }
-
 ```
-
-From the code above, I imported the cloudinary package and configured the required configuration keys to access all the assets stored in cloudinary. By using `process.env` one can access values stored in the `.env.local` file.
 
 By using `cloudinary.v2.api.resources`, one can manage and access all the resources(images) stored in the `Carousel` folder. After querying the Images stored in the folder, convert the json response received into an array of objects for easy image mapping when it comes to fetching data on the frontend.
 
@@ -163,9 +167,6 @@ As we shall be leveraging on react hooks to fetch and update the carousel, creat
 
 import React, { useState, useEffect } from 'react';
 
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-import Image from 'next/image';
-
 const ImageSlider = ({ slides }) => {
   const [sliderData, setSliderData] = useState([]);
 
@@ -178,23 +179,28 @@ const ImageSlider = ({ slides }) => {
   }, []);
 
   return (
-    <section className='slider'>
 
-      {sliderData.map((slide, index) => {
-        return <Image src={slide.url} alt={slide.url} width={600} height={600} />
-      })}
-    </section>
   );
 };
 
 export default ImageSlider;
 ```
 
-Above, we, import the `useState` hook from React. It lets us keep the local state in a function component. We then declared a new state variable by calling the useState hook which returns a pair of values, to which we give names `sliderData &setSliderData`
+Above, we import the `useState` hook from React. It lets us keep the local state in a function component. We then declared a new state variable by calling the useState hook which returns a pair of values, to which we give names `sliderData &setSliderData`
 
 By using `useEffect` we fetch all the images from the API and set the data in the local state of the component. This hook only runs when the component mounts and updates hence fetching data(images) every time it mounts or updates.
 
-After fetching all the data from the Api, we used the `map()` function to iterate over the image data to render all the images.
+After fetching all the data from the Api, we used the `map()` function inside the return statement to iterate over the image data to render all the images as illustrated below :
+
+```ImageSlider.js
+<section className='slider'>
+
+  {sliderData.map((slide, index) => {
+    return <Image src={slide.url} alt={slide.url} width={600} height={600} />
+  })}
+
+</section>
+```
 
 #### **NEXT.JS IMAGE OPTIMIZATION**
 
