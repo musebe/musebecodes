@@ -2,15 +2,7 @@
 title: 'Aircloud'
 date: '2021-03-01'
 description: Serverless Image Storage & Manipulation Using React, Cloudinary,Airtable & Netlify functions.
-tags:
-  [
-    'Database',
-    'cloudinary',
-    'storage',
-    'airtable',
-    'severless',
-    'Netlify_functions',
-  ]
+tags: ['cloudinary', 'storage', 'airtable', 'severless']
 cover: './aircloud.png'
 slug: 'aircloud'
 ---
