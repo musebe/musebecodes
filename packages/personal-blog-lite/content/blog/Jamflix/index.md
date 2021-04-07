@@ -1,6 +1,6 @@
 ---
 title: 'Video Streaming the Jamstack way'
-date: '2021-04-7'
+date: '2021-04-07'
 description: 'A Netflix clone using Cloudinary, Next.js and Airtables.'
 tags: ['cloudinary', 'storage', 'airtable', 'video-api']
 cover: './Jamflix.png'
