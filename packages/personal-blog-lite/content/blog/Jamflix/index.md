@@ -198,9 +198,9 @@ else if (req.method === 'POST') {
   }
 ```
 
-To complete the backend Api, we'll need to add an upload to cloudinary video and thumbnail endpoint so that the callbacks generated can be saved in Airtable.
+To finish the backend API, we'll need to create API routes in the pages folder that will allow us to upload videos and their thumbnails to Cloudinary, and then save the generated callbacks data in Airtable.
 
-In the pages folder, create a video.js file and add the following to it.
+In the pages folder, create a `video.js` file, since we'll be using Formidable to upload the files (Media). We'll need to import it first, as well as the Cloudinary utilities.
 
 Since we'll be using Formidable to upload the files (Media), we'll need to import it first, as well as the cloudinary utilities.
 
