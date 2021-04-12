@@ -7,7 +7,7 @@ cover: './Banner.png'
 slug: 'docker_next'
 ---
 
-Docker is a containerization tool used to speed up the development and deployment processes. It also helps to eliminate environment-specific bugs since you can replicate your production environment locally.
+Docker is a containerization tool used to speed up the development and deployment processes of applications. It also helps to eliminate environment-specific bugs since you can replicate your production environment locally.
 
 We'll look at how to use Docker to build a production version of our Next.js application as a Docker image in this article. We'll also set up Docker to run this image locally in a container.
 
@@ -19,11 +19,11 @@ We'll look at how to use Docker to build a production version of our Next.js app
 npx create-next-app -e with-docker docker
 ```
 
-The above command will spin up a Next.js application on your current directory docker folder configured with a setup multi-stage Dockerfile.
+The above command will spin up a [Next.js](https://nextjs.org) application on your current directory docker folder configured with a setup multi-stage Dockerfile.
 
-On the Dockerfile, we have different stages put together to produce a minimized production image.
+On the Dockerfile, we have different stages put together to produce a minimized production build image.
 
-In the first stage, A linux alpine distribution is used to install the project dependencies by copying over the package.json file into the working directory, run `yarn install` to install the dependencies and on this stage we freeze the lockfile as highlighted below :
+In the first stage, A linux alpine distribution is used to install the project dependencies by copying over the package.json file into the working directory, run `yarn install` to install the dependencies.Also, freeze the lockfile as highlighted below :
 
 ```stage1
 # Install dependencies only when needed
@@ -35,7 +35,7 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 ```
 
-On the second stage of the build, we are only going to rebuild the image only when needed.At this stage, we mainly copy over the application together with its dependencies and build the it as illustrated :
+On the second stage of the build, we are only going to rebuild the image only when needed.At this stage, we mainly copy over the application together with its dependencies and build it as illustrated :
 
 ```stage2
 
