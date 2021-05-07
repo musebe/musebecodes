@@ -11,7 +11,7 @@ slug: 'carousel'
 
 An image carousel is a great way to showcase specific images on your website. This can enhance the overall visual appearance of your website and also improve the general user experience.
 
-In this article, you'll learn how you can prototype a simple image carousel using [Cloudinary](https://cloudinary.com/), [Next.js](https://nextjs.org/) and [Framer-Motion](https://www.framer.com/api/motion/) as illustrated in the Codesandbox below.
+In this article, you'll learn how you can prototype a simple image carousel using [Cloudinary](https://cloudinary.com/), [Next.js](https://nextjs.org/), and [Framer-Motion](https://www.framer.com/api/motion/) as illustrated in the Codesandbox below.
 
 <iframe src="https://codesandbox.io/embed/image-framer-motion-93owf?fontsize=14&hidenavigation=1&theme=dark"style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"title="Image-Framer-Motion"allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
@@ -158,7 +158,7 @@ To test out if the endpoint works. visit your browser or [postman](https://www.p
 
 ## **Image Slider Component**
 
-To be able to consume the api we created and show all the data to the application users, create a components folder on the root of the application and add an `ImageSlider.js` file to it. This will be a normal react component.
+To be able to consume the Api we created and show all the data to the application users, create a components folder on the root of the application and add an `ImageSlider.js` file to it. This will be a normal react component.
 
 #### **Component setup**
 
@@ -272,7 +272,7 @@ Create a div between the Animate presence component and Add the following to it 
 </AnimatePresence>
 ```
 
-Fix the image component between the `motion div` for the transitions and animations applied to take effect to the optimized images.
+Move the image component between the `motion div` for the transitions and animations applied to take effect to the optimized images.
 
 Above we utilized transitions, whileHovers, whileTap and the animate properties from framer motion to give the image carousel a smooth transition
 
