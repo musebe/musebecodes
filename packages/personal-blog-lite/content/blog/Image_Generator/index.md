@@ -8,9 +8,8 @@ slug: 'poster-generator'
 ---
 
 As an event organizer, one of the most important tools to marketing your planned event is a poster displaying all the relevant information about the event to your target audience.
-In this article, we'll be making an events poster generator to make the process seamless and less time-consuming.
-
-We'll use Cloudinary and Next.js to create event posters automatically and store the manipulated image URLs in the faunadb database as illustrated in the [codesandbox](https://codesandbox.io/s/postergenerator-q5xhr?file=/components/Upload.js) below :
+In this article, we'll create an events poster generator to streamline the process and save time.
+We'll use [Cloudinary](https://cloudinary.com) and [Next.js](https://nextjs.org) to create event posters automatically and store the manipulated image URLs in the [Faunadb](https://fauna.com/) database as illustrated in the [codesandbox](https://codesandbox.io/s/postergenerator-q5xhr?file=/components/Upload.js) below:
 
 <iframe src="https://codesandbox.io/embed/postergenerator-q5xhr?fontsize=14&hidenavigation=1&theme=dark"style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"title="poster_generator" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 
@@ -28,7 +27,7 @@ To create a Next.js app, open your terminal, cd into the directory you’d like 
 npx create-next-app poster-generator
 ```
 
-You now have a new directory called nextjs-blog. Let’s cd into it and run the following command to spin it up :
+You now have a new directory called poster-generator. Let’s cd into it and run the following command to spin it up :
 
 ```start-command
 npm run dev
@@ -36,7 +35,7 @@ npm run dev
 
 ### **CLOUDINARY SETUP**
 
-To upload and fetch images to and from [Cloudinary](https://cloudinary.com),we need to first [create an account](https://cloudinary.com/users/register/free). Cloudinary offers a free with enough resources to get you started with media manipulation and optimization.
+To upload and fetch images to and from [Cloudinary](https://cloudinary.com), we need to first [create an account](https://cloudinary.com/users/register/free). Cloudinary offers a free tier with enough resources to get you started with media manipulation and optimization.
 
 After creating an account you will need to :
 
@@ -48,9 +47,9 @@ After creating an account you will need to :
 
 [Fauna](https://fauna.com/) is a cloud-based transactional serverless database that makes that data available via a data API. This makes it ideal for use in a Jamstack application.
 
-There are multiple ways to get started with fauna databases. You can use the web-based admin to create and manage new databases. However, you can also do most actions via the Fauna Shell. For this article we shall manage the database through the shell. This can only be accomplished if you have created an [Fauna account](https://dashboard.fauna.com/accounts/register).
+There are multiple ways to get started with fauna databases. You can use the web-based dashboard to create and manage new databases. However, you can also do most actions via the Fauna Shell. For this article, we shall manage the database through the shell. This can only be accomplished if you have created a [Fauna account](https://dashboard.fauna.com/accounts/register).
 
-If you signed up using third-party authentication like Netlify or GitHub, you need to create the database via the web admin and get a security key in the security tab of the database.
+If you signed up using third-party authentication like Netlify or GitHub, you need to create the database via the web dashboard and get a security key from the security tab of the database.
 
 > Remember to store this key as we shall use it in the application to access the database.
 
@@ -60,21 +59,19 @@ The next step after creating an account is to login via the shell
 fauna cloud-login
 ```
 
-You'll need to enter your email address as well as your password. If you signed up with a third-party authentication service like Netlify or GitHub, you'll need to create a database through the web admin and obtain a security key from the database's security tab.
-
-At this point one can create a database that will be used to store our transformed images. The database name shall be `poster_generator` :
+At this point, one can create a database that will be used to store our transformed images. The database name shall be `poster_generator` :
 
 ```create_database
 fauna create-database poster_generator
 ```
 
-Once the database is created the next step is to create a collection where all the transformed image urls will be stored. The name of the collection will be `transformations`:
+Once the database is created the next step is to create a collection where all the transformed image URLs will be stored. The name of the collection will be `transformations`:
 
 ```collection
 CreateCollection({ name: "transformations" })
 ```
 
-Finally, We need to create an index for this collection.The index will make it easier to locate a document.
+Finally, We need to create an index for this collection. The index will make it easier to locate a document.
 
 ```CreateIndex
 CreateIndex({
@@ -84,11 +81,11 @@ CreateIndex({
 })
 ```
 
-Our database is now ready to be used by our Next.js application after all of the above has been completed.
+Our database is now ready to be used by the Next.js application after all of the above has been completed.
 
 ### **Additional Packages Installation**
 
-To interact with cloudinary and faunadb within the application, run the following command :
+To interact with cloudinary and faunadb within the application, run the following command to install the cloudinary and faunadb package managers :
 
 ```packages
 npm i --save cloudinary faunadb
@@ -107,11 +104,11 @@ NEXT_PUBLIC_FAUNADB_SECRET_KEY=
 
 ### **UPLOAD COMPONENT**
 
-To upload images to cloudinary, create a `Components` folder in the root project structure and add an `Uploads.js` file to it. This is where all the project components will be stored.
+Create a `Components` folder in the root project structure and add a `Uploads.js` file to it. This is where all the project components will be stored.
 
 To the `Uploads` file create a functional component and import `useState` to it. This will help us listen to any change that happens within the component and update its state
 
-Then declare the initial value of the state as `selectedFile` and a `setSelectedFile` file function that will be used to update the state as shown below :
+Then declare the initial value of the state as `selectedFile` and `setSelectedFile` file function that will be used to update the state as shown below :
 
 ```state
 const [selectedFile, setSelectedFile] = useState();
@@ -128,7 +125,7 @@ The next step is to create a function that will handle any changes to the file a
  };
 ```
 
-Once the state of the component is updated with the correct data the next step is to create a function which will submit the data to cloudinary.
+Once the state of the component is updated with the correct data the next step is to create a function that will submit the data to Cloudinary.
 
 ```handlesubmit
   const handleSubmit = async (e) => {
@@ -146,7 +143,7 @@ Once the state of the component is updated with the correct data the next step i
 
 ```
 
-Then create helper function that will perform a post request and return a response based on the status of the upload when used in the `handlesubmit` function as illustrated below :
+Then create a helper function that will make a post request and return a response based on the status of the upload when used in the `handlesubmit` function as illustrated below :
 
 ```
 const uploadImage = async (base64EncodedImage) => {
@@ -179,7 +176,7 @@ To complete the upload component, we'll need to create an upload form to select 
 
 ### **UPLOAD API**
 
-To begin uploading and retrieving images from Cloudinary and storing the manipulated transformations to faunadb, create a `posters` folder inside the `pages` api directory and add an `upload.js` file to the directory.
+To begin uploading and retrieving images from Cloudinary then storing the manipulated transformations to faunadb, create a `posters` folder inside the `pages` api directory and add a `upload.js` file to the directory.
 
 Then create cloudinary and faunadb instances and imports the file as displayed below:
 
@@ -198,10 +195,9 @@ cloudinary.config({
 });
 ```
 
+The next step is getting the submitted file from the triggered request then uploading it to cloudinary for storage purposes. By using the cloudinary `uploader.upload` function, one can tag and assign other variables to the image.
+
 ```upload
-
-The next step is getting the submitted file from the triggered request then uploading it to cloudinary for storage purposes.By using the cloudinary `uploader.upload` function one can be able to tag and assign other variables to the image.
-
 export default async (req, res) => {
   if (req.method === 'POST') {
     try {
@@ -221,9 +217,9 @@ export default async (req, res) => {
 
 ### **IMAGE MANIPULATION**
 
-Once the image has been uploaded. We need to perform transformations to it and add add it to our events speaker deck(template) which will act as the underlay for this project. You can download the template from this link : [Download](https://res.cloudinary.com/hackit-africa/image/upload/v1620904718/events_underlay.png)
+Once the image has been uploaded. We need to perform transformations to it and add it to our events speaker deck(template) which will act as the underlay for this project. You can download the template from this link : [Download](https://res.cloudinary.com/hackit-africa/image/upload/v1620904718/events_underlay.png)
 
-The transformation below is going to transform the uploaded image into a circular shape and append the speakers name below it then place it on top of the underlay image which acts as events template.
+The transformation below is going to transform the uploaded image into a circular shape and append the speakers' name below it then place it on top of the underlay image which acts as an events template.
 
 ```transformation
  const cloudinaryTransforms = {
@@ -251,7 +247,7 @@ The transformation below is going to transform the uploaded image into a circula
       };
 ```
 
-The last piece of the puzzle is to utilise the transformation above on the image and append it to the underlay image to get the final transformed image url :
+The last piece of the puzzle is to utilize the transformation above on the image uploaded and append it to the underlay image to get the final transformed image url :
 
 ```transform image
    const transformedImg = await cloudinary.url(
@@ -264,7 +260,7 @@ The last piece of the puzzle is to utilise the transformation above on the image
 
 Once the image has been stored and transformed, cloudinary will return a url that contains the final transformed image that needs to be stored to Faunadb.
 
-To create a new transformed url collection to faunadb we shall leverage on the following query:
+In order save a the transformed url collection to faunadb we shall leverage on the following query:
 
 ```storage
   client
@@ -276,12 +272,11 @@ To create a new transformed url collection to faunadb we shall leverage on the f
    })
  )
   .then((ret) => console.log(ret));
-
 ```
 
 ### **FETCH IMAGES FROM FAUNADB**
 
-To fetch data from Fauna we need to create an API endpoint inside the `pages`folder. Inside the `api` directory, create a folder and name it `getTransformations`, then create an index.js file. This is where all the fauna query codebase will be written.
+To fetch data from Fauna we need to create an API endpoint inside the `pages` folder. Inside the `api` directory, create a folder and name it `getTransformations`, then create an index.js file. This is where all the fauna query codebase will be written.
 
 The next step is to import the faunadb library we installed.
 
@@ -300,7 +295,7 @@ const client = new faunadb.Client({ secret });
 
 With the above set, We are ready to start querying the uploaded URLs from Faunadb.
 
-Reading data from Fauna is relatively simple in terms of Fauna Query Language.We'll use the `Map()` function to iterate over the data returned from the database.The `Paginate` function will be used to return data in small chunks while the `Match` function will find the search term in the requested index as illustrated below.
+Reading data from Fauna is relatively simple in terms of Fauna Query Language. We'll use the `Map()` function to iterate over the data returned from the database. The `Paginate` function will be used to return data in small chunks while the `Match` function will find the search term in the requested index as illustrated below.
 
 ```fetch
 module.exports = async (req, res) => {
@@ -325,7 +320,7 @@ module.exports = async (req, res) => {
 
 ### **Image Display Component**
 
-At this point we have transformed and stored all the images to faunadb. The next step is to create a component that will hold each individual image on the main page. Inside the components folder create a `PosterItem` file and add the following to it.
+At this point, we have transformed and stored all the images to faunadb. The next step is to create a component that will hold each image on the main page. Inside the components, folder create a `PosterItem` file and add the following to it.
 
 ```
 import Image from 'next/image';
@@ -349,7 +344,7 @@ On the component, we use the Next.js image component to optimize all the transfo
 
 To display all the images. Inside the pages folder on the `Index.js` file create a functional component.
 
-At the bottom of the file we shall fetch data from the database using Next's data pre-rendering technique `getStaticProps` which will enable us fetch data from the database at build time .
+At the bottom of the file, we shall fetch data from the database using Next's data pre-rendering technique `getStaticProps` which will enable us to fetch data from the database at build time.
 
 ```
 export async function getStaticProps() {
@@ -363,9 +358,9 @@ export async function getStaticProps() {
 
 ```
 
-To ensure we fetch all the latest data we used the incremental static regeneration feature to build our application after every 1 minute
+To ensure we fetch all the latest data we used the incremental static regeneration feature to revalidate the data after every 1 minute.
 
-To display all the images in our return function, we pass the data as props to the component. This is achieved through :
+We pass the data to the component as props to display all of the images in our return function. This is accomplished by:
 
 ```
 export default function HomePage({ posters }) {
@@ -390,11 +385,11 @@ export default function HomePage({ posters }) {
 }
 ```
 
-With all the above done. You should be able to upload,transform and display transformed images as shown in the codesandbox above :
+With all the above done. You should be able to upload, transform and display transformed images as shown in the codesandbox above :
 
 ### **Conclusion**
 
-In this article we learnt how to leverage Next.js, Cloudinary's massive capabilities such as storage and transformations and Faunadb as a database to create an event poster. With the same capabilities, one can create way more powerful applications to serve their users.
+In this article, we learned how to leverage Next.js, Faunadb, and Cloudinary's massive capabilities such as storage and transformations to create an event poster. With the same capabilities, one can create way more powerful applications to serve their users.
 
 ### **Learn More**
 
