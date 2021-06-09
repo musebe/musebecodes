@@ -24,7 +24,7 @@ There are multiple approaches to achieve lazy loading which include:
 
 #### **JavaScript packages**
 
-- In order to lazy load media without the increased complexity of interacting with the browser level APIs, you may use plugins. In this session, we shall be using the [nuxt-lazy-load](https://www.npmjs.com/package/nuxt-lazy-load) package to achieve lazy-loading of images and videos as illustrated in the [codesandbox](https://codesandbox.io/s/nuxt-lazy-loading-2t7tv) below :
+You may use plugins to lazy load media without the increased complexity of interacting with the browser-level APIs. In this session, we shall be using the [nuxt-lazy-load](https://www.npmjs.com/package/nuxt-lazy-load) package to achieve lazy-loading of images and videos as illustrated in the [codesandbox](https://codesandbox.io/s/nuxt-lazy-loading-2t7tv) below :
 
 <iframe src="https://codesandbox.io/embed/nuxt-lazy-loading-2t7tv?fontsize=14&hidenavigation=1&theme=dark"style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"title="nuxt-lazy-loading"
 allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
@@ -43,7 +43,7 @@ To scaffold a nuxt.js application make sure you have npx installed on your worki
     yarn create-nuxt-app lazy-loading
 ```
 
-The command above will ask you a series of questions to setup your application. Once all questions are answered it will install all the dependencies.
+The command above will ask you a series of questions to set up your application. Once all questions are answered it will install all the dependencies.
 
 After installation, navigate to the project folder and launch it :
 
@@ -107,7 +107,7 @@ We shall be depending on the [`nuxt-lazy-load`](https://www.npmjs.com/package/nu
 yarn add nuxt-lazy-load
 ```
 
-Then lets setup the package in the configuration file to utilize it in the application :
+Then let's set up the package in the configuration file to utilize it in the application :
 
 ```nuxt.config.js
   modules: [
@@ -119,13 +119,13 @@ Then lets setup the package in the configuration file to utilize it in the appli
 
 ### Fetch images and videos to display by tag
 
-Upload images and videos to your Cloudinary account and add tags to them for easy fetching of specific assets(images/videos) via the the admin API.
+Upload images and videos to your Cloudinary account and add tags to them for easy fetching of specific assets(images/videos) via the admin API.
 
 To ensure your API keys and Secret are kept safe and away from your front-end application, We shall perform the API calls via our [vuex](https://vuex.vuejs.org/) store.
 
-Vuex is a Vue.js application state management pattern and library. It acts as a centralized repository for all the application's components, with rules ensuring that the state can only be changed in predictable ways. It also works with Vue's official devtools extension to offer advanced features like zero-config time-travel debugging and state snapshot export/import.
+Vuex is a Vue.js application state management pattern and library. It acts as a centralized repository for all the application's components, with rules ensuring that the state can only be changed in predictable ways. It also works with Vue's official dev tools extension to offer advanced features like zero-config time-travel debugging and state snapshot export/import.
 
-In NuxtJs, the `nuxtServerInit` method is called only on the server side when it is defined in the `store\index.js` and the `mode` is setup to `universal`.
+In NuxtJs, the `nuxtServerInit` method is called only on the server-side when it is defined in the `store\index.js` and the `mode` is set up to `universal`.
 
 ```store\index.js
 export const actions = {
@@ -186,7 +186,7 @@ Let's now display each of the boards we have. For each we'll display the followi
 - Images
 - Videos
 
-`pages/index.vue`
+This action is performed in the `pages/index.vue` component.
 
 ```html
 <div v-for="board in this.$store.state.modules.boards.boards" :key="board.name">
@@ -197,7 +197,7 @@ Let's now display each of the boards we have. For each we'll display the followi
 ```
 
 The above code loops through the `boards` we have set in our `modules\boards.js` vuex module.
-For each board, we will display the hero section, image grid and video grid.
+For each board, we will display the hero section, image grid, and video grid.
 
 ### Lazy load background image (Hero)
 
@@ -224,7 +224,7 @@ To start `lazy-loading` the background hero image, we'll first create a computed
   },
 ```
 
-Once the background image url is fetched from Cloudinary, we then lazy load it using ` nuxt-lazy-load` package. We do this by adding a `lazy-background` attribute to the div.
+Once the background image url is fetched from Cloudinary, we then lazy load it using the ` nuxt-lazy-load` package. We do this by adding a `lazy-background` attribute to the div.
 
 ```components\Hero.vue
 <div class=".." :lazy-background="backgroundUrl">
@@ -234,7 +234,7 @@ Once the background image url is fetched from Cloudinary, we then lazy load it u
 
 ## Lazy loading images
 
-To lazy load all the tagged images, we will first loop through all the images in the board after which we will use cloudinary's vue.js `cld-image` component to display the fetched images. By using the `loading` attribute on `cld-image` component, we are able to lazy load all the images.
+To lazy load all the tagged images, we will first loop through all the images in the board after which we will use Cloudinary's vue.js `cld-image` component to display the fetched images. By using the `loading` attribute on the `cld-image` component, we are able to lazy load all the images.
 
 ```components\ImageGrid.vue
    <div v-for="image in board.images" :key="image.public_id">
@@ -293,11 +293,9 @@ The next step is to compute all the videos urls and thumbnail urls from cloudina
   },
 ```
 
-To lazy load videos, we'll leverage on the the `v-lazy-load` attribute on html `video` element. You may also specify the poster using `data-poster` attribute.
+To lazy load videos, we'll leverage the `v-lazy-load` attribute on HTML `video` element. You may also specify the poster using the `data-poster` attribute.
 
-File: `components\VideoGrid\LazyLoad.vue`
-
-```
+```components\VideoGrid\LazyLoad.vue
   <video
     class="..."
     :data-poster="thumbnailUrl"
@@ -310,16 +308,14 @@ File: `components\VideoGrid\LazyLoad.vue`
   </video>
 ```
 
-With all the above when you visit your browsers network tab you will realize both images and videos will load only when you scroll the page(on demand).
+With all the above when you visit your browser's network tab you will realize both images and videos will load only when you scroll the page(on demand).
 
 ## Conclusion
 
-We have seen the importance and how we can lazy-load assets in nuxt.js for improved application and web performance. Nuxt.js offers numerous capabilities and possibilities on how one can increase their applications speed through lazy-loading components.
+We have seen the importance and how we can lazy-load assets in nuxt.js for improved application and web performance. Nuxt.js offers numerous capabilities and possibilities on how one can increase their application's speed through lazy-loading components.
 
 ## Resources
 
 - [Lazy loading components in Nuxt.js](https://nuxtjs.org/examples/lazy-loading-components/)
-
 - [Using Cloudinary With Nuxt.js](https://cloudinary.nuxtjs.org/).
-
 - [Importance of lazy loading](https://wp-rocket.me/blog/lazyloading/)
