@@ -25,12 +25,16 @@
     "libc",
     "mediajam",
     "mkdir",
+    "nuxt",
+    "nuxtjs",
     "onmousewheel",
     "posthandler",
     "prismjs",
     "quickstart",
     "slidervideos",
     "stickynode",
-    "videoslider"
+    "videoslider",
+    "vue",
+    "vuex"
   ]
 }
