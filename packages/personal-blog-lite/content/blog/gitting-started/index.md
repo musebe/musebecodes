@@ -4,7 +4,6 @@ date: '2021-03-05'
 description: Understanding Git And Github.
 tags: ['Git', 'Github', 'Introduction']
 cover: './git.png'
-slug: 'gitting-started'
 ---
 
 # **Introduction**

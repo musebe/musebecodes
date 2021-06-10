@@ -4,7 +4,6 @@ date: '2021-04-12'
 description: 'Docker Next.Js up and running'
 tags: ['Next.js', 'Docker', 'Introduction']
 cover: './Banner.png'
-slug: 'docker_next'
 ---
 
 Docker is a containerization tool used to speed up the development and deployment processes of applications. It also helps to eliminate environment-specific bugs since you can replicate your production environment locally.

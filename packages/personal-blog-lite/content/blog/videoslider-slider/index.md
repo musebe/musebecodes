@@ -4,7 +4,6 @@ date: '2021-06-05'
 description: 'An Image to video image carousel.'
 tags: ['cloudinary', 'storage', 'images', 'video']
 cover: './videoslider.jpeg'
-slug: 'videoslider'
 ---
 
 ## **BACKGROUND**

@@ -4,7 +4,6 @@ date: '2021-02-12'
 description: Going Serverless With Netlify Cloud Functions.
 tags: ['Cloud-functions', 'Severless', 'Javascript']
 cover: './netlify.jpeg'
-slug: 'netlify-cloud-functins'
 ---
 
 # What is serverless computing?

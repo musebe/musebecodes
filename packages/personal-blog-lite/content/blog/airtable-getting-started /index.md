@@ -4,7 +4,6 @@ date: '2021-02-24'
 description: An introduction to Airtable as a database.
 tags: ['Database', 'introduction', 'storage', 'airtable']
 cover: './air.png'
-slug: 'airtable'
 ---
 
 # <b>BACKGROUND</b>

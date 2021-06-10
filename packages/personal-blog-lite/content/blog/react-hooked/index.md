@@ -4,7 +4,6 @@ date: '2021-02-17'
 description: React hooks(useState & useEffect).
 tags: ['React', 'Hooks', 'useState', 'useEffect']
 cover: './hooked.png'
-slug: 'react-hooked'
 ---
 
 # Introduction

@@ -4,7 +4,6 @@ date: '2021-01-24'
 description: Welcome to my personal blog.
 tags: ['life-events', 'introduction', 'about-me']
 cover: './preview.png'
-slug: 'hello-world'
 ---
 
 Welcome to my new & fresh personal blog. As a software <strike>developer</strike> engineer, The first point of interaction with any language is with a "Hello World" program hence introducing you to my new born baby "<b>Musebecodes</b>".<br/>

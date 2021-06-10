@@ -4,7 +4,6 @@ date: '2021-05-17'
 description: 'An events poster generator with cloudinary & faunadb.'
 tags: ['next.js', 'storage', 'cloudinary', 'faunadb']
 cover: './poster.png'
-slug: 'poster-generator'
 ---
 
 As an event organizer, one of the most important tools to marketing your planned event is a poster displaying all the relevant information about the event to your target audience.

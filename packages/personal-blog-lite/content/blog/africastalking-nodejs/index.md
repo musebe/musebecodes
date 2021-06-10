@@ -1,10 +1,9 @@
 ---
-title: 'Sending SMS Using Node.js, Express & Africa’s Talking SMS API'
+title: Sending SMS Using Node.js, Express & Africa’s Talking SMS API
 date: '2021-03-10'
 description: Sending SMS Using Node.js, Express & Africa’s Talking SMS API .
 tags: ['Africastalking', 'Socket.io', 'Express', 'Sms']
 cover: './sms.png'
-slug: 'sms'
 ---
 
 **Short Message Service** (SMS) also commonly referred to as a “text message” is probably one of the oldest communication technologies yet the most powerful information and communication sharing tool.With the advent of telecommunication companies providing APIs, bundling our applications with this universal feature has been made possible and easier hence extending services to the grass root level where internet penetration is still a problem.

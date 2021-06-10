@@ -4,7 +4,6 @@ date: '2021-03-20'
 description: An carousel made with next.js and Framer Motion.
 tags: ['next.js', 'storage', 'cloudinary']
 cover: './carousel.jpeg'
-slug: 'carousel'
 ---
 
 # **BACKGROUND**

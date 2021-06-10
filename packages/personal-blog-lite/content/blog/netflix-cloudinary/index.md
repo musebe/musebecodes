@@ -4,7 +4,6 @@ date: '2021-04-07'
 description: 'A Netflix clone using Cloudinary, Next.js and Airtables.'
 tags: ['cloudinary', 'storage', 'airtable', 'video-api']
 cover: './Jamflix.png'
-slug: 'jamflix'
 ---
 
 ## **BACKGROUND**
