@@ -8,7 +8,7 @@ cover: './poster.png'
 
 As an event organizer, one of the most important tools to marketing your planned event is a poster displaying all the relevant information about the event to your target audience.
 In this article, we'll create an events poster generator to streamline the process and save time.
-We'll use [Cloudinary](https://cloudinary.com) and [Next.js](https://nextjs.org) to create event posters automatically and store the manipulated image URLs in the [Faunadb](https://fauna.com/) database as illustrated in the [codesandbox](https://codesandbox.io/s/postergenerator-q5xhr?file=/components/Upload.js) below:
+We'll use [Cloudinary](https://cloudinary.com?ap=em) and [Next.js](https://nextjs.org) to create event posters automatically and store the manipulated image URLs in the [Faunadb](https://fauna.com/) database as illustrated in the [codesandbox](https://codesandbox.io/s/postergenerator-q5xhr?file=/components/Upload.js) below:
 
 <iframe src="https://codesandbox.io/embed/postergenerator-q5xhr?fontsize=14&hidenavigation=1&theme=dark"style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"title="poster_generator" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 
@@ -34,7 +34,7 @@ npm run dev
 
 ### **CLOUDINARY SETUP**
 
-To upload and fetch images to and from [Cloudinary](https://cloudinary.com), we need to first [create an account](https://cloudinary.com/users/register/free). Cloudinary offers a free tier with enough resources to get you started with media manipulation and optimization.
+To upload and fetch images to and from [Cloudinary](https://cloudinary.com?ap=em), we need to first [create an account](https://cloudinary.com/users/register/free). Cloudinary offers a free tier with enough resources to get you started with media manipulation and optimization.
 
 After creating an account you will need to :
 
@@ -216,7 +216,7 @@ export default async (req, res) => {
 
 ### **IMAGE MANIPULATION**
 
-Once the image has been uploaded. We need to perform transformations to it and add it to our events speaker deck(template) which will act as the underlay for this project. You can download the template from this link : [Download](https://res.cloudinary.com/hackit-africa/image/upload/v1620904718/events_underlay.png)
+Once the image has been uploaded. We need to perform transformations to it and add it to our events speaker deck(template) which will act as the underlay for this project. You can download the template from this link : [Download](https://res.cloudinary.com/hackit-africa/image/upload/v1620904718/events_underlay.png?ap=em)
 
 The transformation below is going to transform the uploaded image into a circular shape and append the speakers' name below it then place it on top of the underlay image which acts as an events template.
 
@@ -393,5 +393,5 @@ In this article, we learned how to leverage Next.js, Faunadb, and Cloudinary's m
 ### **Learn More**
 
 - [Next's Documentation](https://nextjs.org/docs)
-- [Digital Asset Management Training](https://training.cloudinary.com)
+- [Digital Asset Management Training](https://training.cloudinary.com?ap=em)
 - [Fauna Documentation](https://docs.fauna.com/fauna/current/start/index.html)
