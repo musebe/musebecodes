@@ -34,7 +34,7 @@ npm run dev
 
 ### **CLOUDINARY SETUP**
 
-To upload and fetch images to and from [Cloudinary](https://cloudinary.com?ap=em), we need to first [create an account](https://cloudinary.com/users/register/free). Cloudinary offers a free tier with enough resources to get you started with media manipulation and optimization.
+To upload and fetch images to and from [Cloudinary](https://cloudinary.com?ap=em), we need to first [create an account](https://cloudinary.com/users/register/free?ap=em). Cloudinary offers a free tier with enough resources to get you started with media manipulation and optimization.
 
 After creating an account you will need to :
 
